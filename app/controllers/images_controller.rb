@@ -42,6 +42,17 @@ class ImagesController < UICollectionViewController
 
   def collectionView(view, didSelectItemAtIndexPath: index_path)
     cell = view.cellForItemAtIndexPath(index_path)
-    puts "Selected at section: #{index_path.section}, row: #{index_path.row}"
+    image_popup(@image_urls[index_path.row])
+  end
+
+  def image_popup(image_url)
+    rmq.wrap(rmq.app.window).tap do |o|
+      o.append(UIView, :overlay).animations.fade_in.on(:tap) do |sender|
+        o.find(sender, :overlay_image, :overlay_image).hide.remove
+      end
+
+      o.append(UIImageView, :overlay_image).get.url = image_url
+      o.append(UILabel, :overlay_note)
+    end
   end
 end
