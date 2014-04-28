@@ -42,8 +42,10 @@ class MainController < UIViewController
     end
   end
 
-
   def open_images_controller(images)
-    puts 'do it'
+    controller = ImagesController.new
+    controller.image_urls = images
+    controller.title = @query.text
+    self.navigationController.pushViewController controller, animated: true
   end
 end
