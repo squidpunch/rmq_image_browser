@@ -12,7 +12,7 @@ class MainController < UIViewController
 
     rmq.append(UILabel, :search_label)
 
-    @query = rmq.append(UITextField, :query).get
+    @query = rmq.append(UITextField, :query).focus.get
 
     rmq.append(UIButton, :submit_button).on(:touch) do |sender|
       puts 'button tapped'
