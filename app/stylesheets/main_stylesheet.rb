@@ -10,24 +10,23 @@ class MainStylesheet < ApplicationStylesheet
   end
 
   def search_label(st)
-    st.frame = {l: 10, t: 100, w: app_width - 20,  h: 40}
+    st.frame = {l: 10, t: 80, w: app_width - 20,  h: 40}
     st.text = 'Find'
     st.color = color.white
     st.font = font.large
   end
 
   def query(st)
-    st.frame = {l: 10, t: 150, w: app_width - 20,  h: 40}
+    st.frame = {l: 10, t: 123, w: app_width - 20,  h: 40}
     st.background_color = color.white
     st.view.font = font.large
   end
 
   def submit_button(st)
-    st.frame = {l: 10, t: 200, w: app_width - 20,  h: 40}
+    st.frame = {l: 10, t: 166, w: app_width - 20,  h: 40}
     st.background_color = color.blue
     st.text = "Go!"
     st.color = color.white
     st.font = font.large
   end
-
 end
